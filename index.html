@@ -4,29 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Márcia Cardoso Moda Íntima</title>
+  <meta
+    name="description"
+    content="Moda íntima premium para varejo e atacado, com elegância, conforto e material de divulgação para fortalecer suas vendas."
+  >
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400&family=Merriweather:wght@300&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+    rel="stylesheet"
+  >
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     :root {
-      --color-primary: #C4A46C;
-      --color-bg-cream: #F9F4ED;
-      --color-dark: #282828;
-      --color-text: #131620;
-      --color-bg-dark: #181818;
-      --color-footer: #131313;
-      --color-slate: #8A8A8A;
-      --color-white: #FFFFFF;
-      --font-heading: 'Merriweather', serif;
-      --font-body: 'Poppins', sans-serif;
-      --font-alt: 'Manrope', sans-serif;
+      --bg: #f6efe7;
+      --bg-soft: #fbf7f2;
+      --surface: rgba(255, 255, 255, 0.72);
+      --surface-strong: #fffaf4;
+      --surface-dark: #221b18;
+      --surface-deep: #17110f;
+      --text: #1f1815;
+      --muted: #6f625a;
+      --line: rgba(78, 56, 43, 0.12);
+      --primary: #b98754;
+      --primary-deep: #8f6337;
+      --primary-soft: #ecd8c1;
+      --white: #ffffff;
+      --shadow-soft: 0 24px 70px rgba(34, 27, 24, 0.09);
+      --shadow-card: 0 16px 40px rgba(44, 29, 18, 0.12);
+      --font-heading: "Cormorant Garamond", serif;
+      --font-body: "Manrope", sans-serif;
+      --radius-xl: 34px;
+      --radius-lg: 26px;
+      --radius-md: 18px;
+      --container: min(1180px, calc(100% - 40px));
     }
 
     html {
@@ -35,739 +52,1258 @@
 
     body {
       font-family: var(--font-body);
-      background-color: var(--color-bg-cream);
-      color: var(--color-text);
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(185, 135, 84, 0.18), transparent 28%),
+        radial-gradient(circle at 85% 18%, rgba(143, 99, 55, 0.10), transparent 22%),
+        linear-gradient(180deg, #f7f0e8 0%, #f5ede4 42%, #f9f5f0 100%);
       line-height: 1.6;
       overflow-x: hidden;
     }
 
     img {
+      display: block;
       max-width: 100%;
       height: auto;
-      display: block;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
-    /* ========== HERO SECTION ========== */
-    .hero {
-      display: flex;
-      flex-direction: column;
+    .page-shell {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .page-shell::before,
+    .page-shell::after {
+      content: "";
+      position: fixed;
+      inset: auto;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -1;
+      filter: blur(16px);
+      opacity: 0.6;
+    }
+
+    .page-shell::before {
+      top: -120px;
+      right: -120px;
+      background: rgba(185, 135, 84, 0.14);
+    }
+
+    .page-shell::after {
+      left: -140px;
+      bottom: 16%;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
       align-items: center;
-      background-color: var(--color-bg-cream);
-      padding: 0;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--primary-deep);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 38px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.6;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 4vw, 4.1rem);
+      line-height: 0.96;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      margin-top: 16px;
+    }
+
+    .section-heading p {
+      max-width: 580px;
+      color: var(--muted);
+      font-size: 1rem;
+      margin-top: 18px;
+    }
+
+    .topbar {
+      border-bottom: 1px solid rgba(120, 94, 74, 0.12);
+      backdrop-filter: blur(14px);
+      background: rgba(251, 247, 242, 0.72);
+    }
+
+    .topbar-inner {
+      width: var(--container);
+      margin: 0 auto;
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .topbar-points,
+    .topbar-social {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .topbar-points span,
+    .topbar-social a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero {
+      padding: 28px 0 76px;
+    }
+
+    .hero-card {
+      width: var(--container);
+      margin: 0 auto;
+      background:
+        linear-gradient(135deg, rgba(255, 250, 244, 0.86), rgba(255, 247, 240, 0.70)),
+        url("https://leonardoames.com.br/wp-content/uploads/2026/04/MarciaCardoso_1171-1.jpg") center/cover;
+      border: 1px solid rgba(126, 98, 77, 0.15);
+      border-radius: 40px;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      position: relative;
+      min-height: 760px;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(247, 240, 232, 0.96) 0%, rgba(247, 240, 232, 0.88) 44%, rgba(247, 240, 232, 0.28) 74%, rgba(247, 240, 232, 0.12) 100%);
     }
 
     .hero-content {
-      display: flex;
-      width: 70%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 100px 0 0;
-      gap: 40px;
-      justify-content: center;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      align-items: end;
+      gap: 36px;
+      min-height: 760px;
+      padding: 46px;
     }
 
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      width: 40%;
-      padding-left: 0;
+    .hero-copy {
+      max-width: 590px;
+      align-self: center;
+      padding-top: 30px;
     }
 
-    .hero-logo {
-      width: 40%;
-      margin-bottom: 35px;
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 42px;
+    }
+
+    .brand-logo {
+      width: clamp(120px, 20vw, 180px);
+    }
+
+    .brand-tag {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.58);
+      border: 1px solid rgba(94, 67, 47, 0.12);
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
     }
 
     .hero-title {
       font-family: var(--font-heading);
-      font-size: 65px;
-      font-weight: 300;
-      line-height: 1.1;
-      color: #000;
-      margin-bottom: 20px;
+      font-size: clamp(3.8rem, 7vw, 6.7rem);
+      line-height: 0.9;
+      font-weight: 500;
+      letter-spacing: -0.045em;
+      max-width: 620px;
     }
 
-    .hero-title em {
-      font-style: normal;
-    }
-
-    .hero-title .highlight {
-      color: var(--color-primary);
+    .hero-title span {
+      color: var(--primary-deep);
     }
 
     .hero-description {
-      font-size: 20px;
-      font-weight: 300;
-      line-height: 1.5;
-      color: #000;
-      margin-bottom: 30px;
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin: 28px 0 18px;
     }
 
-    .hero-buttons {
+    .hero-highlights {
       display: flex;
-      flex-direction: column;
-      gap: 15px;
-      width: 80%;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
     }
 
-    .btn {
-      display: flex;
-      flex-direction: column;
-      padding: 20px 30px 10px;
-      border-radius: 0;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary {
-      background-color: var(--color-primary);
-      color: var(--color-white);
-    }
-
-    .btn-primary:hover {
-      background-color: var(--color-white);
-    }
-
-    .btn-primary:hover .btn-title,
-    .btn-primary:hover .btn-subtitle {
-      color: var(--color-dark);
-    }
-
-    .btn-secondary {
-      background-color: var(--color-primary);
-      border: 2px solid var(--color-dark);
-      color: var(--color-dark);
-    }
-
-    .btn-secondary:hover {
-      background-color: var(--color-dark);
-      color: var(--color-white);
-    }
-
-    .btn-secondary:hover .btn-title,
-    .btn-secondary:hover .btn-subtitle {
-      color: var(--color-white);
-    }
-
-    .btn-title {
-      font-family: var(--font-body);
-      font-size: 20px;
+    .hero-highlights span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.52);
+      border: 1px solid rgba(104, 76, 54, 0.10);
+      font-size: 0.92rem;
       font-weight: 600;
-      letter-spacing: 1px;
-      transition: color 0.3s ease;
+      color: var(--text);
+      backdrop-filter: blur(10px);
     }
 
-    .btn-subtitle {
-      font-size: 16px;
-      font-weight: 300;
-      letter-spacing: 3px;
-      margin-top: 5px;
-      transition: color 0.3s ease;
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
     }
 
-    .hero-right {
-      width: 30%;
+    .cta-button {
+      min-width: 240px;
+      padding: 17px 22px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: transform 0.24s ease, box-shadow 0.24s ease, background-color 0.24s ease, color 0.24s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .cta-primary {
+      background: var(--text);
+      color: var(--white);
+      box-shadow: 0 18px 32px rgba(24, 17, 15, 0.18);
+    }
+
+    .cta-primary:hover {
+      background: var(--primary-deep);
+      box-shadow: 0 18px 32px rgba(143, 99, 55, 0.22);
+    }
+
+    .cta-secondary {
+      background: rgba(255, 255, 255, 0.46);
+      border: 1px solid rgba(77, 53, 35, 0.14);
+      color: var(--text);
+      backdrop-filter: blur(10px);
+    }
+
+    .cta-secondary:hover {
+      background: var(--white);
+      box-shadow: 0 14px 28px rgba(34, 27, 24, 0.08);
+    }
+
+    .hero-note {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 620px;
+    }
+
+    .hero-note div {
+      background: rgba(255, 255, 255, 0.52);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      border: 1px solid rgba(95, 67, 47, 0.12);
+      padding: 18px 16px;
+    }
+
+    .hero-note strong {
+      display: block;
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+    }
+
+    .hero-note span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 100%;
       display: flex;
       align-items: flex-end;
-      margin-left: 60px;
+      justify-content: center;
     }
 
-    .hero-image {
-      width: 160%;
-      height: auto;
-      object-fit: cover;
-      object-position: top center;
+    .hero-model {
+      width: min(100%, 540px);
+      object-fit: contain;
+      object-position: center bottom;
+      filter: drop-shadow(0 20px 50px rgba(32, 20, 12, 0.18));
+      transform: translateY(18px);
     }
 
-    /* ========== BENEFITS SECTION ========== */
-    .benefits {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 45px 0 0;
+    .floating-card,
+    .floating-panel {
+      position: absolute;
+      background: rgba(255, 250, 244, 0.86);
+      border: 1px solid rgba(85, 60, 41, 0.12);
+      border-radius: 26px;
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(12px);
     }
 
-    .benefits-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 15px;
+    .floating-card {
+      top: 108px;
+      right: 20px;
+      width: 230px;
+      padding: 20px;
     }
 
-    .section-label {
-      font-size: 16px;
-      font-weight: 300;
-      letter-spacing: 6px;
-      color: var(--color-primary);
+    .floating-card .mini-title {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      color: var(--primary-deep);
+      margin-bottom: 12px;
     }
 
-    .section-title {
+    .floating-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .floating-panel {
+      left: 12px;
+      bottom: 68px;
+      width: 240px;
+      padding: 18px 18px 20px;
+    }
+
+    .floating-panel strong {
+      display: block;
+      font-size: 2rem;
+      line-height: 1;
       font-family: var(--font-heading);
-      font-size: 40px;
-      font-weight: 300;
-      color: var(--color-text);
+      margin-bottom: 6px;
     }
 
-    .section-title em {
-      font-style: normal;
+    .floating-panel span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 12px;
+    }
+
+    .floating-panel ul {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    .floating-panel li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .trust-strip {
+      margin-top: -42px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .trust-grid {
+      width: var(--container);
+      margin: 0 auto;
+      padding: 24px 26px;
+      border-radius: 28px;
+      background: rgba(255, 250, 244, 0.84);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(109, 81, 60, 0.12);
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px;
+    }
+
+    .trust-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, #fff 0%, #f3e4d5 100%);
+      color: var(--primary-deep);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .trust-item strong {
+      display: block;
+      font-size: 0.97rem;
+      margin-bottom: 2px;
+    }
+
+    .trust-item span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    section {
+      padding: 96px 0;
     }
 
     .benefits-grid {
-      display: flex;
-      width: 90%;
-      max-width: 1200px;
-      justify-content: center;
-      gap: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 22px;
     }
 
     .benefit-card {
-      display: flex;
-      flex-direction: column;
-      width: 25%;
-      min-height: 340px;
-      padding: 10px 20px 0 30px;
-      background-color: var(--color-bg-cream);
-      border-radius: 10px;
-      align-items: flex-start;
+      background: rgba(255, 255, 255, 0.56);
+      border: 1px solid rgba(110, 86, 67, 0.10);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .benefit-card:first-child {
-      margin-left: 0;
+    .benefit-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 44px rgba(31, 24, 21, 0.12);
     }
 
     .benefit-icon {
-      width: 60px;
-      height: 60px;
-      margin-bottom: 35px;
+      width: 62px;
+      height: 62px;
       object-fit: contain;
+      margin-bottom: 22px;
     }
 
-    .benefit-title {
-      font-family: var(--font-body);
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--color-text);
-      margin-bottom: 15px;
+    .benefit-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
     }
 
-    .benefit-text {
-      font-size: 16px;
-      font-weight: 300;
-      line-height: 1.6;
-      color: var(--color-text);
+    .benefit-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
-    .spacer {
-      height: 60px;
+    .experience-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: 28px;
+      align-items: stretch;
     }
 
-    /* ========== ABOUT SECTION ========== */
-    .about {
-      background-color: var(--color-dark);
-      padding: -80px;
-      border-radius: 10px;
-      width: 70%;
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      gap: 0;
+    .experience-card,
+    .experience-sidebar {
+      border-radius: 34px;
+      overflow: hidden;
+      min-height: 100%;
+      box-shadow: var(--shadow-soft);
     }
 
-    .about-image-container {
-      width: 65%;
-      margin-left: -250px;
-      margin-top: -50px;
-      padding: -100px;
+    .experience-card {
+      position: relative;
+      background:
+        linear-gradient(0deg, rgba(23, 17, 15, 0.45), rgba(23, 17, 15, 0.10)),
+        url("https://leonardoames.com.br/wp-content/uploads/2026/04/image-5-1.png") center top / cover no-repeat;
+      min-height: 640px;
     }
 
-    .about-image {
-      width: 70%;
-      height: 100%;
-      object-fit: cover;
-      padding: -100px;
-      margin-left: -60px;
+    .experience-overlay {
+      position: absolute;
+      inset: auto 26px 26px 26px;
+      background: rgba(255, 250, 244, 0.82);
+      border: 1px solid rgba(74, 53, 38, 0.10);
+      border-radius: 28px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
     }
 
-    .about-content {
-      width: 40%;
+    .experience-overlay strong {
+      display: block;
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--primary-deep);
+      margin-bottom: 10px;
+    }
+
+    .experience-overlay p {
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .experience-sidebar {
+      background: linear-gradient(180deg, #211916 0%, #17110f 100%);
+      color: var(--white);
+      padding: 36px;
       display: flex;
       flex-direction: column;
-      padding: 40px 0 0;
+      justify-content: space-between;
+      gap: 28px;
     }
 
-    .about-label {
-      font-size: 16px;
-      font-weight: 300;
-      letter-spacing: 6px;
-      color: var(--color-primary);
-      text-transform: uppercase;
-      margin-bottom: 10px;
+    .experience-sidebar .section-heading h2,
+    .experience-sidebar .section-heading p {
+      color: var(--white);
     }
 
-    .about-title {
-      font-family: var(--font-heading);
-      font-size: 40px;
-      font-weight: 300;
-      line-height: 1.2;
-      color: var(--color-white);
-      margin-bottom: 20px;
+    .experience-sidebar .section-heading p {
+      color: rgba(255, 255, 255, 0.72);
     }
 
-    .about-title em {
-      font-style: normal;
+    .story-points {
+      display: grid;
+      gap: 18px;
     }
 
-    .about-title .highlight {
-      color: var(--color-primary);
+    .story-item {
+      padding: 0 0 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
     }
 
-    .about-text {
-      font-family: var(--font-alt);
-      font-size: 16px;
-      font-weight: 400;
-      color: var(--color-white);
-      line-height: 1.6;
-      margin-bottom: 20px;
+    .story-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
     }
 
-    .about-location {
+    .story-item strong {
+      display: block;
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+    }
+
+    .story-item p {
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.95rem;
+    }
+
+    .story-meta {
       display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .story-meta span {
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.80);
+      font-size: 0.9rem;
     }
 
-    .location-line {
-      width: 10%;
-      height: 1px;
-      background-color: var(--color-primary);
+    .journey {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.42), rgba(255, 255, 255, 0.18));
+      border-top: 1px solid rgba(106, 80, 60, 0.10);
+      border-bottom: 1px solid rgba(106, 80, 60, 0.10);
     }
 
-    .location-text {
-      font-family: var(--font-alt);
-      font-size: 16px;
-      color: var(--color-slate);
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
     }
 
-    .about-social {
-      display: flex;
+    .journey-step {
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      background: rgba(255, 250, 244, 0.78);
+      border: 1px solid rgba(109, 80, 57, 0.10);
+      box-shadow: var(--shadow-card);
+    }
+
+    .journey-step strong {
+      display: inline-flex;
       align-items: center;
-      gap: 30px;
-    }
-
-    .social-link {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .social-icon {
-      font-size: 20px;
-      color: var(--color-primary);
-    }
-
-    .social-text {
-      font-family: var(--font-alt);
-      font-size: 16px;
-      color: var(--color-white);
-    }
-
-    .about-section-spacer {
-      height: 60px;
-    }
-
-    /* ========== CTA SECTION ========== */
-    .cta-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: linear-gradient(rgba(40, 40, 40, 0.8), rgba(40, 40, 40, 0.8)),
-                  url('https://leonardoames.com.br/wp-content/uploads/2026/04/MarciaCardoso_1171-1.jpg') center right / cover no-repeat;
-      background-color: var(--color-bg-dark);
-      padding: 30px 20px;
-    }
-
-    .cta-title {
-      font-size: 16px;
-      font-weight: 300;
-      letter-spacing: 6px;
-      color: var(--color-primary);
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .cta-headline {
-      font-family: var(--font-heading);
-      font-size: 40px;
-      font-weight: 300;
-      line-height: 1.2;
-      color: var(--color-white);
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    .cta-headline em {
-      font-style: normal;
-    }
-
-    .cta-icon {
-      font-size: 15px;
-      color: var(--color-primary);
-      margin-bottom: 20px;
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-      }
-      40% {
-        transform: translateY(-10px);
-      }
-      60% {
-        transform: translateY(-5px);
-      }
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 30px;
-      width: 40%;
       justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--primary-soft);
+      color: var(--primary-deep);
+      font-size: 1rem;
+      margin-bottom: 18px;
     }
 
-    .cta-btn {
+    .journey-step h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .journey-step p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .cta-section {
+      padding-top: 88px;
+      padding-bottom: 88px;
+    }
+
+    .cta-shell {
+      width: var(--container);
+      margin: 0 auto;
+      border-radius: 36px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+      box-shadow: var(--shadow-soft);
+      background: var(--surface-deep);
+    }
+
+    .cta-visual {
+      min-height: 100%;
+      background:
+        linear-gradient(180deg, rgba(18, 14, 12, 0.12), rgba(18, 14, 12, 0.52)),
+        url("https://leonardoames.com.br/wp-content/uploads/2026/04/image-3.1-2.png") center top / cover no-repeat;
+    }
+
+    .cta-content {
+      padding: 44px;
+      color: var(--white);
+      background:
+        radial-gradient(circle at top right, rgba(185, 135, 84, 0.22), transparent 30%),
+        linear-gradient(180deg, #1d1512 0%, #120d0b 100%);
+    }
+
+    .cta-content h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 4vw, 4.1rem);
+      line-height: 0.96;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      margin: 16px 0 18px;
+    }
+
+    .cta-content p {
+      color: rgba(255, 255, 255, 0.72);
+      max-width: 520px;
+      margin-bottom: 28px;
+    }
+
+    .cta-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .cta-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .cta-card {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding: 20px;
-      min-width: 200px;
-      transition: all 0.3s ease;
+      gap: 14px;
+      padding: 22px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.10);
     }
 
-    .cta-btn-primary {
-      background-color: var(--color-primary);
-      color: var(--color-white);
+    .cta-card strong {
+      font-size: 1rem;
+      color: var(--white);
     }
 
-    .cta-btn-primary:hover {
-      background-color: var(--color-white);
+    .cta-card p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.66);
+      font-size: 0.92rem;
     }
 
-    .cta-btn-primary:hover .cta-btn-title,
-    .cta-btn-primary:hover .cta-btn-subtitle {
-      color: var(--color-dark);
+    .cta-card .cta-button {
+      min-width: 0;
+      width: 100%;
     }
 
-    .cta-btn-secondary {
-      background-color: transparent;
-      border: 2px solid var(--color-white);
-      color: var(--color-white);
-    }
-
-    .cta-btn-secondary:hover {
-      background-color: var(--color-white);
-      color: var(--color-dark);
-    }
-
-    .cta-btn-secondary:hover .cta-btn-title,
-    .cta-btn-secondary:hover .cta-btn-subtitle {
-      color: var(--color-dark);
-    }
-
-    .cta-btn-title {
-      font-size: 20px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      transition: color 0.3s ease;
-    }
-
-    .cta-btn-subtitle {
-      font-size: 16px;
-      font-weight: 300;
-      letter-spacing: 3px;
-      margin-top: 5px;
-      transition: color 0.3s ease;
-    }
-
-    .cta-spacer {
-      height: 30px;
-    }
-
-    /* ========== FOOTER ========== */
     .footer {
-      background-color: var(--color-footer);
-      padding: 30px 20px;
-      text-align: center;
+      padding: 32px 0 48px;
     }
 
-    .footer-text {
-      font-family: var(--font-body);
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 4px;
-      color: #888;
+    .footer-inner {
+      width: var(--container);
+      margin: 0 auto;
+      border-top: 1px solid rgba(98, 73, 54, 0.12);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.84rem;
     }
 
-    /* ========== RESPONSIVE ========== */
-    @media (max-width: 1024px) {
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 1160px) {
+      .hero-content,
+      .experience-layout,
+      .cta-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card,
       .hero-content {
-        width: 90%;
-        flex-direction: column;
+        min-height: auto;
+      }
+
+      .hero-copy {
+        max-width: none;
+      }
+
+      .hero-visual {
+        min-height: 520px;
+        order: -1;
         align-items: center;
       }
 
-      .hero-left {
-        width: 100%;
-        align-items: center;
-        text-align: center;
+      .hero-model {
+        max-height: 520px;
+        width: auto;
       }
 
-      .hero-right {
-        width: 100%;
-        justify-content: center;
-        margin-left: 0;
+      .floating-card {
+        top: 26px;
+        right: 18px;
       }
 
-      .hero-image {
-        width: 80%;
-        margin: 0 auto;
+      .floating-panel {
+        left: 18px;
+        bottom: 22px;
       }
 
-      .hero-buttons {
-        width: 100%;
+      .experience-card {
+        min-height: 540px;
       }
 
-      .benefits-grid {
-        flex-wrap: wrap;
-      }
-
-      .benefit-card {
-        width: 50%;
-      }
-
-      .about {
-        width: 90%;
-        flex-direction: column;
-        padding: 30px;
-      }
-
-      .about-image-container {
-        width: 100%;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-      }
-
-      .about-image {
-        width: 80%;
-        margin: 0 auto;
-      }
-
-      .about-content {
-        width: 100%;
-        align-items: center;
-        text-align: center;
-      }
-
-      .about-location {
-        justify-content: center;
-      }
-
-      .about-social {
-        justify-content: center;
-      }
-
-      .cta-buttons {
-        width: 90%;
-        flex-direction: column;
-        align-items: center;
+      .cta-visual {
+        min-height: 340px;
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 980px) {
+      .trust-grid,
+      .benefits-grid,
+      .journey-grid,
+      .cta-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .topbar-inner,
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-note {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      :root {
+        --container: min(100% - 24px, 1180px);
+      }
+
+      .topbar {
+        display: none;
+      }
+
+      section {
+        padding: 72px 0;
+      }
+
+      .hero {
+        padding-top: 12px;
+        padding-bottom: 52px;
+      }
+
+      .hero-card {
+        border-radius: 28px;
+      }
+
+      .hero-content,
+      .cta-content,
+      .experience-sidebar {
+        padding: 24px;
+      }
+
+      .brand-row {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 28px;
+      }
+
       .hero-title {
-        font-size: 45px;
+        font-size: clamp(3rem, 14vw, 4.4rem);
       }
 
-      .section-title,
-      .about-title,
-      .cta-headline {
-        font-size: 30px;
+      .hero-description {
+        font-size: 0.98rem;
       }
 
-      .benefit-card {
-        width: 90%;
-        min-height: auto;
-        padding: 30px;
-        margin: 0 auto;
+      .hero-actions {
+        flex-direction: column;
       }
 
-      .btn {
+      .cta-button {
         width: 100%;
+        min-width: 0;
       }
 
-      .btn-title {
-        font-size: 15px;
+      .hero-visual {
+        min-height: 420px;
       }
 
-      .btn-subtitle {
-        font-size: 12px;
+      .hero-model {
+        max-height: 410px;
       }
 
-      .cta-btn {
-        width: 90%;
+      .floating-card,
+      .floating-panel {
+        width: min(220px, calc(100% - 36px));
       }
 
-      .cta-btn-title {
-        font-size: 15px;
+      .floating-card {
+        top: 18px;
+        right: 18px;
       }
 
-      .cta-btn-subtitle {
-        font-size: 12px;
+      .floating-panel {
+        left: 18px;
+        bottom: 18px;
       }
 
-      .footer-text {
-        font-size: 8px;
+      .trust-strip {
+        margin-top: -20px;
+      }
+
+      .trust-grid,
+      .benefits-grid,
+      .journey-grid,
+      .cta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-grid {
+        padding: 18px;
+      }
+
+      .section-heading h2,
+      .cta-content h2 {
+        font-size: clamp(2.1rem, 10vw, 3.2rem);
+      }
+
+      .experience-card {
+        min-height: 460px;
+      }
+
+      .experience-overlay {
+        inset: auto 18px 18px 18px;
       }
     }
   </style>
 </head>
 <body>
-
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-left">
-        <img src="https://leonardoames.com.br/wp-content/uploads/2026/04/Ativo-1@2x.png" alt="Márcia Cardoso Moda Íntima" class="hero-logo">
-
-        <h1 class="hero-title">
-          <em>O desejo que <span class="highlight">move</span> a moda</em>
-        </h1>
-
-        <p class="hero-description">
-          Peças que unem elegância, sensualidade e conforto, para quem revende com exclusividade.
-        </p>
-
-        <div class="hero-buttons">
-          <a href="https://wa.me/5547999985578?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20Moda%20%C3%8Dntima%20e%20quero%20informa%C3%A7%C3%B5es%20sobre%20como%20comprar%20no%20Atacado%20para%20revenda.%20Pode%20me%20ajudar%3F" class="btn btn-primary" target="_blank" rel="noopener">
-            <span class="btn-title">QUERO COMPRAR NO ATACADO</span>
-            <span class="btn-subtitle">→ LOJISTAS E REVENDEDORES</span>
-          </a>
-
-          <a href="https://wa.me/5547999985578?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20o%20cat%C3%A1logo%20de%20Moda%20%C3%8Dntima%20para%20comprar%20algumas%20pe%C3%A7as%20para%20mim.%20Como%20funciona%3F" class="btn btn-secondary" target="_blank" rel="noopener">
-            <span class="btn-title">QUERO COMPRAR PRA MIM</span>
-            <span class="btn-subtitle">→ VAREJO</span>
+  <div class="page-shell">
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="topbar-points">
+          <span><i class="fa-solid fa-star"></i> Desde 2006 em Blumenau, SC</span>
+          <span><i class="fa-solid fa-shirt"></i> Coleções com apelo premium</span>
+          <span><i class="fa-solid fa-camera-retro"></i> Conteúdo visual para vender mais</span>
+        </div>
+        <div class="topbar-social">
+          <a href="https://www.instagram.com/marciacardosomodaintima" target="_blank" rel="noopener">
+            <i class="fab fa-instagram"></i>
+            @marciacardosomodaintima
           </a>
         </div>
       </div>
-
-      <div class="hero-right">
-        <img src="https://leonardoames.com.br/wp-content/uploads/2026/04/image-3.1-2.png" alt="Moda Íntima" class="hero-image">
-      </div>
-    </div>
-  </section>
-
-  <!-- BENEFITS SECTION -->
-  <section class="benefits">
-    <div class="benefits-header">
-      <span class="section-label">POR QUE A MÁRCIA CARDOSO?</span>
-      <h2 class="section-title"><em>O que faz a diferença no seu negócio </em></h2>
     </div>
 
-    <div class="benefits-grid">
-      <div class="benefit-card">
-        <img src="https://leonardoames.com.br/wp-content/uploads/2026/04/qualidade.png" alt="Qualidade" class="benefit-icon">
-        <h3 class="benefit-title">Qualidade</h3>
-        <p class="benefit-text">Selecionamos matérias-primas de excelência, garantindo superioridade nos tecidos, nas rendas e no processo de costura.</p>
-      </div>
+    <header class="hero">
+      <div class="hero-card">
+        <div class="hero-content">
+          <div class="hero-copy">
+            <div class="brand-row">
+              <img
+                src="https://leonardoames.com.br/wp-content/uploads/2026/04/Ativo-1@2x.png"
+                alt="Márcia Cardoso Moda Íntima"
+                class="brand-logo"
+              >
+              <span class="brand-tag">Elegância, sensualidade e conforto em cada detalhe</span>
+            </div>
 
-      <div class="benefit-card">
-        <img src="https://leonardoames.com.br/wp-content/uploads/2026/04/Frame-4-1.png" alt="Exclusividade" class="benefit-icon">
-        <h3 class="benefit-title">Exclusividade</h3>
-        <p class="benefit-text">Nossas coleções são limitadas, garantindo exclusividade e autenticidade.</p>
-      </div>
+            <span class="eyebrow">Márcia Cardoso Moda Íntima</span>
+            <h1 class="hero-title">
+              O desejo que <span>move</span> a moda.
+            </h1>
+            <p class="hero-description">
+              Peças que unem elegância, sensualidade e conforto para mulheres que valorizam beleza,
+              sofisticação e exclusividade em cada escolha.
+            </p>
 
-      <div class="benefit-card">
-        <img src="https://leonardoames.com.br/wp-content/uploads/2026/04/Frame-4-2.png" alt="Material de divulgação" class="benefit-icon">
-        <h3 class="benefit-title">Material de divulgação</h3>
-        <p class="benefit-text">Disponibilizamos as mesmas fotos e vídeos utilizados em nossas plataformas.</p>
-      </div>
+            <div class="hero-highlights">
+              <span><i class="fa-solid fa-check"></i> Peças para atacado e varejo</span>
+              <span><i class="fa-solid fa-check"></i> Rendas, tecidos e cores selecionadas</span>
+              <span><i class="fa-solid fa-check"></i> Material de divulgação para revenda</span>
+            </div>
 
-      <div class="benefit-card">
-        <img src="https://leonardoames.com.br/wp-content/uploads/2026/04/Frame-4-3.png" alt="Frete Grátis" class="benefit-icon">
-        <h3 class="benefit-title">Frete Grátis</h3>
-        <p class="benefit-text">Condições de entrega especiais para atacado e varejo.</p>
+            <div class="hero-actions">
+              <a
+                href="https://wa.me/5547999985578?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20Moda%20%C3%8Dntima%20e%20quero%20informa%C3%A7%C3%B5es%20sobre%20como%20comprar%20no%20Atacado%20para%20revenda.%20Pode%20me%20ajudar%3F"
+                class="cta-button cta-primary"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="fa-brands fa-whatsapp"></i>
+                Quero Comprar No Atacado
+              </a>
+              <a
+                href="https://wa.me/5547999985578?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20o%20cat%C3%A1logo%20de%20Moda%20%C3%8Dntima%20para%20comprar%20algumas%20pe%C3%A7as%20para%20mim.%20Como%20funciona%3F"
+                class="cta-button cta-secondary"
+                target="_blank"
+                rel="noopener"
+              >
+                <i class="fa-regular fa-heart"></i>
+                Quero Comprar Pra Mim
+              </a>
+            </div>
+
+            <div class="hero-note">
+              <div>
+                <strong>Elegância</strong>
+                <span>Peças pensadas para valorizar a beleza feminina.</span>
+              </div>
+              <div>
+                <strong>Conforto</strong>
+                <span>Sofisticação sem abrir mão do bem-estar no vestir.</span>
+              </div>
+              <div>
+                <strong>Exclusividade</strong>
+                <span>Coleções limitadas com identidade e autenticidade.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <img
+              src="https://leonardoames.com.br/wp-content/uploads/2026/04/image-3.1-2.png"
+              alt="Modelo com lingerie da Márcia Cardoso Moda Íntima"
+              class="hero-model"
+            >
+
+            <div class="floating-card">
+              <span class="mini-title">Essência da marca</span>
+              <p>
+                Uma moda íntima criada para despertar confiança, sensualidade
+                e elegância em cada detalhe.
+              </p>
+            </div>
+
+            <div class="floating-panel">
+              <strong>2006</strong>
+              <span>Uma história construída com desejo, cuidado e peças diferenciadas.</span>
+              <ul>
+                <li><i class="fa-solid fa-circle-check"></i> Atacado e varejo</li>
+                <li><i class="fa-solid fa-circle-check"></i> Material de divulgação</li>
+                <li><i class="fa-solid fa-circle-check"></i> Sofisticação e conforto</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="trust-strip">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon"><i class="fa-solid fa-gem"></i></div>
+          <div>
+            <strong>Acabamento premium</strong>
+            <span>Mais percepção de valor e desejo de compra.</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon"><i class="fa-solid fa-box-open"></i></div>
+          <div>
+            <strong>Coleções limitadas</strong>
+            <span>Exclusividade que fortalece a revenda.</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon"><i class="fa-solid fa-photo-film"></i></div>
+          <div>
+            <strong>Fotos e vídeos</strong>
+            <span>Conteúdo pronto para divulgação do produto.</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon"><i class="fa-solid fa-truck-fast"></i></div>
+          <div>
+            <strong>Condições especiais</strong>
+            <span>Atacado e varejo com atendimento direto no WhatsApp.</span>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="spacer"></div>
-  </section>
+    <main>
+      <section class="benefits">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Por Que A Marca Se Destaca</span>
+            <h2>O que faz a diferença no seu negócio e na sua escolha.</h2>
+            <p>
+              Cada peça é pensada para entregar mais do que beleza: ela carrega qualidade,
+              exclusividade e uma apresentação que fortalece tanto a marca quanto a revenda.
+            </p>
+          </div>
 
-  <!-- ABOUT SECTION -->
-  <section class="about">
-    <div class="about-image-container">
-      <img src="https://leonardoames.com.br/wp-content/uploads/2026/04/image-5-1.png" alt="Márcia Cardoso" class="about-image">
-    </div>
+          <div class="benefits-grid">
+            <article class="benefit-card">
+              <img src="https://leonardoames.com.br/wp-content/uploads/2026/04/qualidade.png" alt="Qualidade" class="benefit-icon">
+              <h3>Qualidade</h3>
+              <p>Selecionamos matérias-primas de excelência, garantindo superioridade nos tecidos, nas rendas e no processo de costura.</p>
+            </article>
 
-    <div class="about-content">
-      <span class="about-label">QUEM SOMOS</span>
-      <h2 class="about-title"><em>Fundada por <span class="highlight">desejo.</span><br>Sustentada por resultado.</em></h2>
+            <article class="benefit-card">
+              <img src="https://leonardoames.com.br/wp-content/uploads/2026/04/Frame-4-1.png" alt="Exclusividade" class="benefit-icon">
+              <h3>Exclusividade</h3>
+              <p>Nossas coleções são limitadas, garantindo mais autenticidade, desejo e valor percebido para cada peça.</p>
+            </article>
 
-      <p class="about-text">
-        Se existe algo que nos move e nos mantém vivos, esse algo é o desejo. Assim, nasce a Márcia Cardoso Moda Íntima. Com desejo de proporcionar as mulheres confiança, sensualidade e elegância.<br><br>
-        Desde 2006, fundada por Márcia Cardoso, com vontade de trazer peças diferenciadas. Sempre buscando inspirações nas novas tendências do cenário da moda.<br><br>
-        Com muito cuidado nas escolhas das rendas, tecidos e cores. Atentando-se sempre a beleza, sofisticação e também o conforto.
-      </p>
+            <article class="benefit-card">
+              <img src="https://leonardoames.com.br/wp-content/uploads/2026/04/Frame-4-2.png" alt="Material de divulgação" class="benefit-icon">
+              <h3>Material de divulgação</h3>
+              <p>Disponibilizamos as mesmas fotos e vídeos utilizados em nossas plataformas para apoiar quem vende com mais força.</p>
+            </article>
 
-      <div class="about-location">
-        <div class="location-line"></div>
-        <span class="location-text">Blumenau, SC · desde 2006</span>
+            <article class="benefit-card">
+              <img src="https://leonardoames.com.br/wp-content/uploads/2026/04/Frame-4-3.png" alt="Frete e atendimento" class="benefit-icon">
+              <h3>Frete Grátis</h3>
+              <p>Condições especiais de entrega para atacado e varejo, com atendimento direto para facilitar cada pedido.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience">
+        <div class="container">
+          <div class="experience-layout">
+            <div class="experience-card">
+              <div class="experience-overlay">
+                <strong>Quem somos</strong>
+                <p>
+                  Uma marca movida pelo desejo de proporcionar às mulheres confiança,
+                  sensualidade, elegância e conforto.
+                </p>
+              </div>
+            </div>
+
+            <div class="experience-sidebar">
+              <div>
+                <div class="section-heading">
+                  <span class="eyebrow">Quem Somos</span>
+                  <h2>Fundada por desejo. Sustentada por resultado.</h2>
+                  <p>
+                    Desde 2006, a Márcia Cardoso Moda Íntima nasce com o desejo de trazer peças diferenciadas,
+                    sempre inspiradas nas tendências da moda e guiadas por beleza, sofisticação e conforto.
+                  </p>
+                </div>
+
+                <div class="story-points">
+                  <div class="story-item">
+                    <strong>Desejo que inspira</strong>
+                    <p>Se existe algo que nos move, é o desejo de proporcionar às mulheres mais confiança e elegância em cada peça.</p>
+                  </div>
+                  <div class="story-item">
+                    <strong>Cuidado em cada escolha</strong>
+                    <p>Rendas, tecidos e cores são selecionados com atenção para unir sofisticação, beleza e conforto real.</p>
+                  </div>
+                  <div class="story-item">
+                    <strong>Peças diferenciadas desde a origem</strong>
+                    <p>Fundada por Márcia Cardoso em Blumenau, a marca nasceu com vontade de oferecer uma moda íntima com identidade própria.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="story-meta">
+                <span><i class="fa-solid fa-location-dot"></i> Blumenau, SC</span>
+                <span><i class="fa-brands fa-instagram"></i> @marciacardosomodaintima</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="journey">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Experiência Mais Clara</span>
+            <h2>Seu próximo passo fica mais simples quando a escolha é clara.</h2>
+            <p>
+              A experiência foi organizada para destacar o valor da marca, facilitar a navegação
+              e tornar mais direto o caminho entre interesse, confiança e contato.
+            </p>
+          </div>
+
+          <div class="journey-grid">
+            <article class="journey-step">
+              <strong>01</strong>
+              <h3>Conheça a marca</h3>
+              <p>Entenda rapidamente a proposta da Márcia Cardoso Moda Íntima e o que torna cada coleção especial.</p>
+            </article>
+
+            <article class="journey-step">
+              <strong>02</strong>
+              <h3>Descubra os diferenciais</h3>
+              <p>Veja por que qualidade, exclusividade e apoio de divulgação fazem diferença no resultado.</p>
+            </article>
+
+            <article class="journey-step">
+              <strong>03</strong>
+              <h3>Escolha como comprar</h3>
+              <p>Atacado ou varejo: cada caminho foi separado para tornar o atendimento mais rápido e mais claro.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <div class="cta-shell">
+          <div class="cta-visual"></div>
+
+          <div class="cta-content">
+            <span class="eyebrow">Próximo Passo</span>
+            <h2>Seu próximo passo está aqui.</h2>
+            <p>
+              Seja para revender ou para comprar para você, fale direto com a marca
+              e conheça as condições, coleções e possibilidades que fazem sentido para o seu perfil.
+            </p>
+
+            <ul class="cta-list">
+              <li><i class="fa-solid fa-check"></i> Atendimento direto pelo WhatsApp</li>
+              <li><i class="fa-solid fa-check"></i> Caminhos separados para atacado e varejo</li>
+              <li><i class="fa-solid fa-check"></i> Mais clareza para comprar com confiança</li>
+            </ul>
+
+            <div class="cta-grid">
+              <div class="cta-card">
+                <strong>Atacado</strong>
+                <p>Para lojistas e revendedores que desejam comprar no atacado com exclusividade e apoio de divulgação.</p>
+                <a
+                  href="https://wa.me/5547999985578?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20Moda%20%C3%8Dntima%20e%20quero%20informa%C3%A7%C3%B5es%20sobre%20como%20comprar%20no%20Atacado%20para%20revenda.%20Pode%20me%20ajudar%3F"
+                  class="cta-button cta-primary"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="fa-brands fa-whatsapp"></i>
+                  Quero Comprar No Atacado
+                </a>
+              </div>
+
+              <div class="cta-card">
+                <strong>Varejo</strong>
+                <p>Para quem quer conhecer o catálogo e comprar peças para uso pessoal com elegância e conforto.</p>
+                <a
+                  href="https://wa.me/5547999985578?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20o%20cat%C3%A1logo%20de%20Moda%20%C3%8Dntima%20para%20comprar%20algumas%20pe%C3%A7as%20para%20mim.%20Como%20funciona%3F"
+                  class="cta-button cta-secondary"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <i class="fa-regular fa-heart"></i>
+                  Quero Comprar Pra Mim
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span>© 2026 Márcia Cardoso Moda Íntima</span>
+          <span>Todos os direitos reservados</span>
+        </div>
+        <div>Elegância, sensualidade e conforto para atacado e varejo.</div>
       </div>
-
-      <div class="about-social">
-        <a href="https://www.instagram.com/marciacardosomodaintima" target="_blank" rel="noopener" class="social-link">
-          <i class="fab fa-instagram social-icon"></i>
-          <span class="social-text">@marciacardosomodaintima</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <div class="about-section-spacer"></div>
-
-  <!-- CTA SECTION -->
-  <section class="cta-section">
-    <span class="cta-title">PRÓXIMO PASSO</span>
-    <h2 class="cta-headline"><em>Seu próximo passo<br>está aqui</em></h2>
-    <i class="fas fa-chevron-down cta-icon"></i>
-
-    <div class="cta-buttons">
-      <a href="https://wa.me/5547999985578?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20Moda%20%C3%8Dntima%20e%20quero%20informa%C3%A7%C3%B5es%20sobre%20como%20comprar%20no%20Atacado%20para%20revenda.%20Pode%20me%20ajudar%3F" class="cta-btn cta-btn-primary" target="_blank" rel="noopener">
-        <span class="cta-btn-title">QUERO COMPRAR NO ATACADO</span>
-        <span class="cta-btn-subtitle">→ LOJISTAS E REVENDEDORES</span>
-      </a>
-
-      <a href="https://wa.me/5547999985578?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20o%20cat%C3%A1logo%20de%20Moda%20%C3%8Dntima%20para%20comprar%20algumas%20pe%C3%A7as%20para%20mim.%20Como%20funciona%3F" class="cta-btn cta-btn-secondary" target="_blank" rel="noopener">
-        <span class="cta-btn-title">QUERO COMPRAR PRA MIM</span>
-        <span class="cta-btn-subtitle">→ VAREJO</span>
-      </a>
-    </div>
-
-    <div class="cta-spacer"></div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <p class="footer-text">© 2025 MÁRCIA CARDOSO MODA ÍNTIMA<br>TODOS OS DIREITOS RESERVADOS</p>
-  </footer>
-
+    </footer>
+  </div>
 </body>
 </html>
